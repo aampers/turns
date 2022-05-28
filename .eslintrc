@@ -4,13 +4,15 @@
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
+    "plugin:@typescript-eslint/recommended"
   ],
   "globals": {
     "module": true
   },
   "plugins": [
-    "prettier"
+    "prettier",
+    "@typescript-eslint"
   ],
   "rules": {
     "prettier/prettier": "error",
