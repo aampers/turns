@@ -2,7 +2,7 @@ import { Canvas } from '@react-three/fiber';
 import { useRef } from 'react';
 import { Material } from 'three';
 import Controls from './components/Controls';
-import { triangles, xLength, yLength } from './maps';
+import { spaces, triangles, xLength, yLength } from './maps';
 
 const background = '#272730';
 
@@ -14,8 +14,8 @@ const Map = ({ ...props }) => {
 			{...props}
 			dispose={null}
 			position={[-Math.floor(xLength / 2), 0, -Math.floor(yLength / 2)]}>
-			{triangles.map(({ geometry, material }) => (
-				<mesh geometry={geometry} material={material} />
+			{spaces.map(({ geometry, material }, i) => (
+				<mesh key={`space-${i}`} geometry={geometry} material={material} />
 			))}
 		</group>
 	);
@@ -28,9 +28,7 @@ const App = () => {
 				<Controls />
 				<fog attach='fog' color='#666670' near={1} far={50} />
 				<gridHelper args={[100, 100, '#49495a', '#73738c']} />
-
 				<Map />
-
 				<ambientLight intensity={0.6} />
 				<directionalLight
 					intensity={0.4}

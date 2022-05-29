@@ -1,6 +1,7 @@
-import { separateTriangles } from '../utils/triangles';
+import { separateSpaces, separateTriangles } from '../utils/triangles';
 import { buildSquares } from '../utils/squares';
 import type Triangle from '../classes/Triangle';
+import Space from '../classes/Space';
 
 export const buildPoints = (map: number[][]) => {
 	const yLength = map.length;
@@ -79,5 +80,9 @@ export const squares = buildSquares(points, xLength, yLength);
 export const triangles: Triangle[] = squares
 	.map((points) => points.map(([x, y, z]) => [x, y, z]))
 	.flatMap(separateTriangles);
+
+export const spaces: Space[] = squares
+	.map((points) => points.map(([x, y, z]) => [x, y, z]))
+	.flatMap(separateSpaces);
 
 // const edges

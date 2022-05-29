@@ -1,4 +1,6 @@
+import Space from '../../classes/Space';
 import Triangle from '../../classes/Triangle';
+
 export const getIsolatedPointIndex = (square: number[][]) => {
 	// we're only interested in the y coord, so we'll start by mapping to it
 	const yCoords = square.map(([, y]) => y);
@@ -28,9 +30,10 @@ export const getIsolatedPointIndex = (square: number[][]) => {
 		}
 	}
 
-	if (candidates.length === 4)
-		return console.log('it DOES happen!', { yCoords }) || Math.max(...yCoords);
-	else return candidates[0];
+	if (candidates.length === 4) {
+		console.log('it DOES happen!', { yCoords });
+		return Math.max(...yCoords);
+	} else return candidates[0];
 };
 
 export const separateTriangles = (
@@ -57,10 +60,15 @@ export const separateTriangles = (
 
 	const square = { coordinates: coordinatesOfSquare, position: [a[0], a[2]] };
 
-	const color = `hsla(${180 + a[0] * 15 + a[2] * 10}, 30%, 70%, 1)`;
+	const color = `hsla(${180 + a[0] * 15 + a[2] * 10}, 50%, 70%, 1)`;
 
 	return [
 		new Triangle({ coordinates: coordinatesA, square, color }),
 		new Triangle({ coordinates: coordinatesB, square, color }),
 	];
+};
+
+export const separateSpaces = (coordinatesOfSquare: number[][]) => {
+	const triangles = separateTriangles(coordinatesOfSquare);
+	return new Space(triangles);
 };

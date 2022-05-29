@@ -7,7 +7,6 @@ export interface Square {
 
 interface TriangleOptions {
 	coordinates: number[][];
-	position: BufferAttribute;
 	square: Square;
 	color?: string;
 	material?: Material;
@@ -15,7 +14,7 @@ interface TriangleOptions {
 
 class Triangle {
 	coordinates: number[][];
-	position: BufferAttribute;
+	position?: BufferAttribute;
 	square: Square;
 	material?: Material;
 	geometry?: BufferGeometry;
