@@ -11,10 +11,12 @@
   "author": "Alan Ray Ampersand",
   "license": "ISC",
   "dependencies": {
+    "@react-three/fiber": "8.0.19",
     "@typescript-eslint/eslint-plugin": "5.26.0",
     "@typescript-eslint/parser": "5.26.0",
     "react": "18.1.0",
-    "react-dom": "18.1.0"
+    "react-dom": "18.1.0",
+    "three": "0.141.0"
   },
   "devDependencies": {
     "@babel/eslint-parser": "7.18.2",
