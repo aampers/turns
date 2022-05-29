@@ -14,7 +14,6 @@ interface TriangleOptions {
 
 class Triangle {
 	coordinates: number[][];
-	position?: BufferAttribute;
 	square: Square;
 	material?: Material;
 	geometry?: BufferGeometry;
@@ -36,7 +35,6 @@ class Triangle {
 		this.coordinates = [a, b, c];
 		this.geometry = triangleGeometry;
 		this.material = triangleMaterial;
-		this.position = position;
 		this.square = square;
 	}
 }

@@ -8,6 +8,7 @@ export const buildPoints = (map: number[][]) => {
 	const xLength = map[0].length;
 	const points = [];
 
+	// todo rename all the ys that should be zs
 	for (let y = 0; y < yLength; y += 1) {
 		for (let x = 0; x < xLength; x += 1) {
 			points.push([x, map[y][x], y]);
@@ -44,7 +45,7 @@ const map2 = [
 	[4, 0, 1, 0, 0, 1, 1],
 	[4, 2, 1, 1, 0, 0, 0],
 	[4, 2, 1, 0, 0, 0, 1],
-	[4, 0, 0, 0, 0, 0, 0],
+	[4, 0, 0, 0, 0, 0, 2],
 ];
 
 const map3 = [
@@ -76,10 +77,6 @@ export const yLength = map.length;
 export const xLength = map[0].length;
 
 export const squares = buildSquares(points, xLength, yLength);
-
-export const triangles: Triangle[] = squares
-	.map((points) => points.map(([x, y, z]) => [x, y, z]))
-	.flatMap(separateTriangles);
 
 export const spaces: Space[] = squares
 	.map((points) => points.map(([x, y, z]) => [x, y, z]))

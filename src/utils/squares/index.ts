@@ -11,7 +11,7 @@ export const buildSquares = (
 				points[xLength * yIndex + xIndex],
 				points[xLength * yIndex + xLength + 1 * xIndex],
 				points[xLength * yIndex + xLength + 1 * (xIndex + 1)],
-				points[xLength * yIndex + xIndex + 1]
+				points[xLength * yIndex + xIndex + 1],
 			]);
 		}
 	}
